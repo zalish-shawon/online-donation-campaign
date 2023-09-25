@@ -1,3 +1,4 @@
+import React from 'react';
 import { Chart } from 'react-google-charts';
 
 const Statistics = () => {
@@ -16,20 +17,22 @@ const Statistics = () => {
 
     const options = {
         title: 'Donation Statistics',
-        is3D: true, 
+        is3D: true, // Add 3D effect if desired
     };
 
     return (
-        <div className='flex justify-center items-center'>
+        <div className="w-full md:w-1/2 lg:w-[1024px] mx-auto p-4">
             
-            <Chart
-                chartType="PieChart"
-                width={'900px'}
-                height={'600px'}
-                data={chartData}
-                options={options}
-                loader={<div>Loading Chart...</div>}
-            />
+            <div className="w-full h-96">
+                <Chart
+                    chartType="PieChart"
+                    data={chartData}
+                    options={options}
+                    loader={<div>Loading Chart...</div>}
+                    width={'100%'}
+                    height={'100%'}
+                />
+            </div>
         </div>
     );
 };

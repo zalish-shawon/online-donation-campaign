@@ -11,9 +11,9 @@ const Header = () => {
                     </div>
                     <div className="flex-none">
                         <ul className="flex gap-5 items-center font-semibold">
-                            <Link to={"/"}><a>Home</a></Link>
-                            <Link to={"/donation"}><a>Donation</a></Link>
-                            <Link to={"/statistics"}><a></a>Statistics</Link>
+                            <Link to={"/"}><a className="hover:text-orange-600">Home</a></Link>
+                            <Link to={"/donation"}><a className="hover:text-orange-600">Donation</a></Link>
+                            <Link to={"/statistics"}><a className="hover:text-orange-600">Statistics</a></Link>
                             
                         </ul>
                     </div>

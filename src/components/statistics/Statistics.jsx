@@ -1,21 +1,35 @@
+import { Chart } from 'react-google-charts';
+
 const Statistics = () => {
-    const donationItems = JSON.parse(localStorage.getItem('donations'))
-   
-    // const total = donationItems.reduce((preValue, currentValue) => preValue + currentValue.price,0)
+    const donationItems = JSON.parse(localStorage.getItem('donations'));
 
-    // console.log(total);
+    const len = donationItems.length;
+    const percentage = (len / 12) * 100;
+    const fixedPercentage = parseFloat(percentage.toFixed(2));
+    const remainPercentage = 100 - fixedPercentage;
 
-    const len = donationItems.length
-    const percentage = (len / 12) * 100
-    const fixedPercentage = percentage.toFixed(2)
-    const remainPercentage = 100 - fixedPercentage
-    console.log(remainPercentage);
-   
+    const chartData = [
+        ['Category', 'Percentage'],
+        ['Donated', fixedPercentage],
+        ['Remaining', remainPercentage],
+    ];
 
-    
+    const options = {
+        title: 'Donation Statistics',
+        is3D: true, 
+    };
+
     return (
-        <div>
+        <div className='flex justify-center items-center'>
             
+            <Chart
+                chartType="PieChart"
+                width={'900px'}
+                height={'600px'}
+                data={chartData}
+                options={options}
+                loader={<div>Loading Chart...</div>}
+            />
         </div>
     );
 };

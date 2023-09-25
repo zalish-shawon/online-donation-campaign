@@ -1,12 +1,42 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import swal from 'sweetalert';
+
 
 const Details = () => {
     const donations = useLoaderData()
-    
     const {id} = useParams()
    const donate = donations.find(item => item.id == id)
-   console.log(donate);
+  
+   const handleDonation = () => {
+
+    const addedDonations = []
+
+    const donationItems = JSON.parse(localStorage.getItem('donations'))
     
+    if(!donationItems) {
+        addedDonations.push(donate)
+        localStorage.setItem('donations', JSON.stringify(addedDonations))
+        swal("Good job!", "Donation added successfully!", "success");
+
+    } else {
+
+        const isExits = donationItems.find(item => item.id == id)
+
+        if (!isExits) {
+            addedDonations.push(...donationItems, donate)
+            localStorage.setItem('donations', JSON.stringify(addedDonations))
+            swal("Good job!", "Donation added successfully!", "success");
+        } else {
+            swal("Oops!", "Already added!", "error");
+        }
+        
+
+    }
+
+
+    //  localStorage.setItem('test', JSON.stringify([{name: 'shawon'}, {name: 'zalish'}]))
+     
+   }
     return (
         <div>
             <h1 className="text-center font-bold text-4xl mb-6">Donation details</h1>
@@ -14,7 +44,7 @@ const Details = () => {
                 <img className="w-[650px]" src={donate.picture} alt="" />
                 <div className="relative bottom-14  ">
                     <div className="bg-slate-700 bg-opacity-50 w-[650px] h-14 mx-auto ">
-                    <button style={{backgroundColor: `${donate.btn_color}`}} className="rounded-lg p-2 text-white mt-2 ml-2">Donate ${donate.price}</button>
+                    <button onClick={handleDonation} style={{backgroundColor: `${donate.btn_color}`}} className="rounded-lg p-2 text-white mt-2 ml-2">Donate ${donate.price}</button>
                     </div>
                     
                 </div>

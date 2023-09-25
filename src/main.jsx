@@ -10,6 +10,7 @@ import {
 import MainLayout from './components/mainLayout/MainLayout.jsx';
 import Home from './components/Home/Home.jsx';
 import Details from './components/details/Details.jsx';
+import Donation from './components/donation/Donation.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         path: "/details/:id",
         loader: () => fetch('/public/donate.json'),
         element: <Details></Details>
+      },
+      {
+        path: "/donation",
+        element: <Donation></Donation>
       }
     ]
   },

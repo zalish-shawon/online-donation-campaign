@@ -1,11 +1,13 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
+import { Link } from "react-router-dom";
 
+/* eslint-disable react/prop-types */
 const DoanteCards = ({ item }) => {
-    const { picture, title, category, category_bg, card_bg, text_color, btn_color } = item
+    const {id, picture, title, category, category_bg, card_bg, text_color,  } = item
 
     return (
         <div>
+            
+            <Link to={`/details/${id}`}>
             <div style={{backgroundColor: `${card_bg}`}} className="card  shadow-xl cursor-pointer">
                 <figure><img className='w-full' src={picture} alt="" /></figure>
                 <div className="card-body">
@@ -16,6 +18,10 @@ const DoanteCards = ({ item }) => {
                     
                 </div>
             </div>
+
+            </Link>
+
+            
         </div>
     );
 };

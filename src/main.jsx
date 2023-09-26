@@ -13,6 +13,8 @@ import Home from './components/Home/Home.jsx';
 import Details from './components/details/Details.jsx';
 import Donation from './components/donation/Donation.jsx';
 import Statistics from './components/statistics/Statistics.jsx';
+import ErrorPage from './components/error/ErrorPage.jsx';
+import { Root } from 'postcss';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        errorElement: <ErrorPage></ErrorPage>,
         element: <Home></Home>,
       },
       {
@@ -36,7 +39,8 @@ const router = createBrowserRouter([
       {
         path: "/statistics",
         element: <Statistics></Statistics>
-      }
+      },
+      
     ]
   },
 ]);

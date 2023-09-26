@@ -34,7 +34,7 @@ const Details = () => {
     }
 
 
-    //  localStorage.setItem('test', JSON.stringify([{name: 'shawon'}, {name: 'zalish'}]))
+
      
    }
     return (

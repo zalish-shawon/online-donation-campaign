@@ -28,7 +28,7 @@ const Donation = () => {
                 }
                 
             </div>}
-            <div className={dataLength === donation.length ? 'hidden': ''}>
+            <div className={dataLength === donation.length || donation.length < 4 ? 'hidden': ''}>
             <div className="flex justify-center">
             <button onClick={() => setDataLength(donation.length)} className="bg-[#009444] px-3 py-2 rounded-lg text-center text-white">See all </button>
             </div>

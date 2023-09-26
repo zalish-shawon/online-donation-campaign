@@ -17,7 +17,7 @@ const Statistics = () => {
 
     const options = {
         title: 'Donation Statistics',
-        is3D: true, // Add 3D effect if desired
+        is3D: true, 
     };
 
     return (

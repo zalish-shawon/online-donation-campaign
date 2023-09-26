@@ -6,6 +6,7 @@ const Header = () => {
         <div className="w-[95%] mx-auto">
             <nav>
                 <div className="navbar bg-base-100">
+                    
                     <div className="flex-1 mr-4">
                         <img className="w-[200px]" src="/public/resources/Logo.png" alt="" />
                     </div>

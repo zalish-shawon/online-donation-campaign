@@ -9,12 +9,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import MainLayout from './components/mainLayout/MainLayout.jsx';
-import Home from './components/Home/Home.jsx';
+
 import Details from './components/details/Details.jsx';
 import Donation from './components/donation/Donation.jsx';
 import Statistics from './components/statistics/Statistics.jsx';
 import ErrorPage from './components/error/ErrorPage.jsx';
 import { Root } from 'postcss';
+import Home from './components/home/Home.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,12 +26,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        
         element: <Home></Home>,
       },
       {
         path: "/details/:id",
-        loader: () => fetch('/public/donate.json'),
+        loader: () => fetch('/donate.json'),
         element: <Details></Details>
       },
       {

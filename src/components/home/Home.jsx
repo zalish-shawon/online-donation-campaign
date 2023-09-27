@@ -12,7 +12,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch('/public/donate.json')
+        fetch('/donate.json')
             .then(res => res.json())
             .then(data => setDonations(data))
     }, [])
